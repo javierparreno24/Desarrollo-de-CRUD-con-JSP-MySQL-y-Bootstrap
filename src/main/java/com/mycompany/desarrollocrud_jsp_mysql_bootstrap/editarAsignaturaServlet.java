@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 // Esta anotación vincula el formulario con este código
 @WebServlet("/EditarAsignaturaServlet")
-public class EditarAsignaturaServlet extends HttpServlet {
+public class editarAsignaturaServlet extends HttpServlet {
     
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) 
