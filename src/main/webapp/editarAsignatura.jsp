@@ -18,7 +18,7 @@
                 <h3 class="mb-0">Modificar Asignatura</h3>
             </div>
             <div class="card-body">
-                <form action="editarAsignaturaServlet" method="POST">
+                <form action="procesarEditar.jsp" method="POST">
                     <input type="hidden" name="id" value="<%= request.getParameter("id") %>">
                     
                     <div class="mb-3">
