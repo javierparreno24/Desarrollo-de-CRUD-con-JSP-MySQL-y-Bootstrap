@@ -29,21 +29,25 @@
             <tr><th>ID</th><th>Descripción</th><th>ID Asignatura</th><th>Acciones</th></tr>
         </thead>
         <tbody>
-            <%
-                ResultadoAprendizajeDAO dao = new ResultadoAprendizajeDAO();
-                for(ResultadoAprendizaje ra : dao.listar()) {
-            %>
-            <tr>
-                <td><%= ra.getId() %></td>
-                <td><%= ra.getDescripcion() %></td>
-                <td><%= ra.getIdAsignatura() %></td>
-                <td>
-                    <button class="btn btn-warning btn-sm">Editar</button>
-                    <button class="btn btn-danger btn-sm">Eliminar</button>
-                </td>
-            </tr>
-            <% } %>
-        </tbody>
+    <%
+        ResultadoAprendizajeDAO dao = new ResultadoAprendizajeDAO();
+        for(ResultadoAprendizaje ra : dao.listar()) {
+    %>
+    <tr>
+        <td><%= ra.getId() %></td>
+        <td><%= ra.getDescripcion() %></td>
+        <td><%= ra.getIdAsignatura() %></td>
+        <td>
+            <a href="editarRA.jsp?id=<%= ra.getId() %>&descripcion=<%= ra.getDescripcion() %>&id_asignatura=<%= ra.getIdAsignatura() %>" 
+               class="btn btn-warning btn-sm">Editar</a>
+            
+            <a href="procesarEliminarRA.jsp?id=<%= ra.getId() %>" 
+               class="btn btn-danger btn-sm" 
+               onclick="return confirm('¿Estás seguro de eliminar este RA?')">Eliminar</a>
+        </td>
+    </tr>
+    <% } %>
+</tbody>
     </table>
         <script src="js/main.js"></script>
 </body>
