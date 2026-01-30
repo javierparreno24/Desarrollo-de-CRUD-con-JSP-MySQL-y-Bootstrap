@@ -30,4 +30,17 @@ public class ResultadoAprendizajeDAO {
             ps.executeUpdate();
         } catch (SQLException e) { e.printStackTrace(); }
     }
+    public boolean editar(ResultadoAprendizaje ra) {
+    String sql = "UPDATE resultados_aprendizaje SET descripcion = ?, id_asignatura = ? WHERE id = ?";
+    try (Connection con = Database.getConnection();
+         PreparedStatement ps = con.prepareStatement(sql)) {
+        ps.setString(1, ra.getDescripcion());
+        ps.setInt(2, ra.getIdAsignatura());
+        ps.setInt(3, ra.getId());
+        return ps.executeUpdate() > 0;
+    } catch (SQLException e) {
+        e.printStackTrace();
+        return false;
+    }
+}
 }

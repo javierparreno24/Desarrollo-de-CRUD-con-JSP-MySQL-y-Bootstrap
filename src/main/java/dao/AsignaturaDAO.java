@@ -33,4 +33,20 @@ public class AsignaturaDAO {
             return ps.executeUpdate() > 0;
         } catch (SQLException e) { return false; }
     }
+    public boolean editar(Asignatura asig) {
+    // Usamos PreparedStatement para evitar inyección SQL y errores de sintaxis
+    String sql = "UPDATE asignaturas SET nombre = ?, codigo = ? WHERE id = ?";
+    try (Connection con = Database.getConnection(); 
+         PreparedStatement ps = con.prepareStatement(sql)) {
+        
+        ps.setString(1, asig.getNombre());
+        ps.setString(2, asig.getCodigo());
+        ps.setInt(3, asig.getId());
+        
+        return ps.executeUpdate() > 0; // Retorna true si se actualizó el registro
+    } catch (SQLException e) {
+        System.out.println("Error al editar asignatura: " + e.getMessage());
+        return false;
+    }
+}
 }

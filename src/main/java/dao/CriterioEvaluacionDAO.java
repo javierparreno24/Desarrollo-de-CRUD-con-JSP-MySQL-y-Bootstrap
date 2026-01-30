@@ -51,6 +51,18 @@ public class CriterioEvaluacionDAO {
             return false;
         }
     }
-    
+    public boolean editar(CriterioEvaluacion ce) {
+    String sql = "UPDATE criterios_evaluacion SET detalle = ?, id_ra = ? WHERE id = ?";
+    try (Connection con = Database.getConnection();
+         PreparedStatement ps = con.prepareStatement(sql)) {
+        ps.setString(1, ce.getDetalle());
+        ps.setInt(2, ce.getIdRa());
+        ps.setInt(3, ce.getId());
+        return ps.executeUpdate() > 0;
+    } catch (SQLException e) {
+        e.printStackTrace();
+        return false;
+    }
+}
     
 }
