@@ -10,7 +10,7 @@
     <div class="card shadow col-md-6 mx-auto">
         <div class="card-header bg-warning"><h3>Editar Resultado de Aprendizaje</h3></div>
         <div class="card-body">
-            <form action="EditarRAServlet" method="POST">
+            <form action="editarRAServlet" method="POST">
                 <input type="hidden" name="id" value="<%= request.getParameter("id") %>">
                 <div class="mb-3">
                     <label class="form-label">Descripción</label>

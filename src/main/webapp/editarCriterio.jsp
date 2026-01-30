@@ -4,7 +4,7 @@
     Author     : DAW2
 --%>
 
-<form action="EditarCriterioServlet" method="POST">
+<form action="editarCriterioServlet" method="POST">
     <input type="hidden" name="id" value="<%= request.getParameter("id") %>">
     <div class="mb-3">
         <label>Detalle del Criterio</label>
